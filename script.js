@@ -1,4 +1,5 @@
 var rule_num_elem;
+var num_input_elem;
 var canvas;
 var ctx;
 
@@ -29,8 +30,6 @@ function toggle_bit(elem, bit) {
 	}
 	
 	update_rule_num();
-	run_elementary();
-	render();
 }
 
 function init_canvas() {
@@ -40,10 +39,40 @@ function init_canvas() {
 }
 
 function update_rule_num() {
-	if(!rule_num_elem)
-		rule_num_elem = document.querySelector("#rule-number span");
+	requires_rule_num();
 	
 	rule_num_elem.innerText = bits_to_num(rule);
+	
+	run_elementary();
+	render();
+}
+
+function show_num_input() {
+	requires_rule_num();
+	requires_num_input();
+	rule_num_elem.classList.add("no-display");
+	num_input_elem.classList.remove("no-display");
+	num_input_elem.focus();
+}
+
+function update_num_input() {
+	requires_rule_num();
+	requires_num_input();
+	num_input_elem.classList.add("no-display");
+	rule_num_elem.classList.remove("no-display");
+	
+	rule = num_to_bits(+num_input_elem.value);
+	update_rule_num();
+}
+
+function requires_rule_num() {
+	if(!rule_num_elem)
+		rule_num_elem = document.getElementById("rule-num");
+}
+
+function requires_num_input() {
+	if(!num_input_elem)
+		num_input_elem = document.getElementById("num-input");
 }
 
 function render() {

@@ -78,11 +78,25 @@ table {
 	gap: 15px;
 }
 
-#rule-number {
+#rule-num-container {
 	font-size: 30px;
-	width: 100px;
+	width: 80px;
 	display: grid;
 	align-items: center;
+}
+
+.no-display {
+	display: none !important;
+}
+
+input[type=text] {
+	width: 55px;
+	padding: 4px 6px;
+	display: inline;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-size: 24px;
 }
 
 #canvas {
@@ -90,8 +104,8 @@ table {
 	z-index: -1;
 	/*
 	background-image: linear-gradient(45deg, black 25%, transparent 25%), linear-gradient(-45deg, black 25%, transparent 25%), linear-gradient(45deg, transparent 75%, black 75%), linear-gradient(-45deg, transparent 75%, black 75%);
-  background-size: 40px 40px;
-  background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+	background-size: 40px 40px;
+	background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
 	*/
 }
 
