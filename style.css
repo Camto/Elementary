@@ -1,0 +1,105 @@
+* {
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+	margin: 0px;
+	margin-bottom: 15vh;
+}
+
+#title {
+	margin-top: 60px;
+	margin-bottom: 60px;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+h1, h2 {
+	text-align: center;
+	margin: 0px;
+}
+
+h1 {
+	font-size: 60px;
+}
+
+h2 {
+	font-size: 24px;
+}
+
+hr {
+	border-top: 1px solid black;
+	width: 700px;
+}
+
+.square {
+	border: 1px solid black;
+	width: 20px;
+	height: 21px;
+}
+
+.on {
+	background-color: black;
+}
+
+.off {
+	background-color: white;
+}
+
+.empty {
+	border: none;
+}
+
+.clicky {
+	cursor: pointer;
+}
+
+.rule-bit-table {
+	border-collapse: collapse;
+}
+
+.rule-bit-table td {
+	padding: 0px;
+}
+
+table {
+	display: inline-block;
+}
+
+.rule-container {
+	display: grid;
+	place-items: center;
+	margin-bottom: 60px;
+}
+
+.rule-container > div {
+	display: flex;
+	gap: 15px;
+}
+
+#rule-number {
+	font-size: 30px;
+	width: 100px;
+	display: grid;
+	align-items: center;
+}
+
+#canvas {
+	position: absolute;
+	z-index: -1;
+	/*
+	background-image: linear-gradient(45deg, black 25%, transparent 25%), linear-gradient(-45deg, black 25%, transparent 25%), linear-gradient(45deg, transparent 75%, black 75%), linear-gradient(-45deg, transparent 75%, black 75%);
+  background-size: 40px 40px;
+  background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+	*/
+}
+
+#content {
+	background: linear-gradient(#00000000 150px, rgba(255, 255, 255, 0.9) 250px, rgba(255, 255, 255, 0.9) 1000px, white 1200px);
+	padding: 230px max(25%, 100px) 0px max(25%, 100px);
+}
+
+p {
+	font-size: 20px;
+}
