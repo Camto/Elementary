@@ -71,17 +71,21 @@ function update_num_input() {
 	num_input_elem.classList.add("no-display");
 	rule_num_elem.classList.remove("no-display");
 	
-	rule = num_to_bits(+num_input_elem.value);
-	update_rule_num();
-	for(let i = 0; i < rule.length; i++) {
-		let bit_elem = bit_elems[i];
-		if(rule[i]) {
-			bit_elem.classList.add("on");
-			bit_elem.classList.remove("off");
-		} else {
-			bit_elem.classList.add("off");
-			bit_elem.classList.remove("on");
+	if(/^\d*$/.test(num_input_elem.value)) {
+		rule = num_to_bits(Math.min(+num_input_elem.value, 255));
+		update_rule_num();
+		for(let i = 0; i < rule.length; i++) {
+			let bit_elem = bit_elems[i];
+			if(rule[i]) {
+				bit_elem.classList.add("on");
+				bit_elem.classList.remove("off");
+			} else {
+				bit_elem.classList.add("off");
+				bit_elem.classList.remove("on");
+			}
 		}
+	} else {
+		num_input_elem.value = bits_to_num(rule);
 	}
 }
 
