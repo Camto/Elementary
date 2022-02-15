@@ -116,7 +116,7 @@
 				<div id="rule-num-container">
 					<div>
 						= <span id="rule-num" class="clicky" onclick="show_num_input()">22</span>
-						<input type="text" value="22" id="num-input" class="no-display" onblur="update_num_input()"></input>
+						<input type="text" value="22" id="num-input" class="no-display" onblur="update_num_input()" onkeyup="if(event.key == 'Enter') this.blur()"></input>
 					</div>
 				</div>
 			</div>
