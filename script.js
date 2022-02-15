@@ -1,6 +1,7 @@
 var bit_elems;
 var rule_num_elem;
 var num_input_elem;
+var content_elem;
 var canvas;
 var ctx;
 
@@ -84,6 +85,18 @@ function update_num_input() {
 	}
 }
 
+function toggle_lower(button_elem) {
+	requires_content();
+	
+	if(!content_elem.classList.contains("lower")) {
+		content_elem.classList.add("lower");
+		button_elem.innerText = "Show less";
+	} else {
+		content_elem.classList.remove("lower");
+		button_elem.innerText = "Show more";
+	}
+}
+
 function requires_rule_num() {
 	if(!rule_num_elem)
 		rule_num_elem = document.getElementById("rule-num");
@@ -97,6 +110,11 @@ function requires_num_input() {
 function requires_bits() {
 	if(!bit_elems)
 		bit_elems = Array.from(document.querySelectorAll(".rule-bit-table .clicky"));
+}
+
+function requires_content() {
+	if(!content_elem)
+		content_elem = document.getElementById("content");
 }
 
 function render() {
@@ -127,7 +145,7 @@ function run_elementary() {
 	
 	rows = [cells];
 	
-	for(let _ of Array(60)) {
+	for(let _ of Array(90)) {
 		cells = cells.map((mid_cell, i) => {
 			let left_cell = i > 0 ? cells[i - 1] : false;
 			let right_cell = i < cell_num - 1 ? cells[i + 1] : false;
