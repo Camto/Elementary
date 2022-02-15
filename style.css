@@ -70,6 +70,7 @@ table {
 .rule-container {
 	display: grid;
 	place-items: center;
+	margin-bottom: 60px;
 }
 
 .rule-container > div {
@@ -96,12 +97,7 @@ table {
 
 #content {
 	background: linear-gradient(#00000000 150px, rgba(255, 255, 255, 0.9) 250px, rgba(255, 255, 255, 0.9) 1000px, white 1200px);
-	padding-top: 250px;
-}
-
-#text {
-	padding-left: max(25%, 100px);
-	padding-right: max(25%, 100px);
+	padding: 230px max(25%, 100px) 0px max(25%, 100px);
 }
 
 p {

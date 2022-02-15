@@ -13,133 +13,127 @@
 			<h2>A short exploration of elementary cellular automata</h2>
 		</div>
 		
+		<div class="rule-container">
+			<div>
+				<table class="rule-bit-table">
+					<tbody>
+						<tr>
+							<td class="square on"></td>
+							<td class="square on"></td>
+							<td class="square on"></td>
+						</tr>
+						<tr>
+							<td class="square empty"></td>
+							<td class="square off clicky" onclick="toggle_bit(this, 0)"></td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<table class="rule-bit-table">
+					<tr>
+						<td class="square on"></td>
+						<td class="square on"></td>
+						<td class="square off"></td>
+					</tr>
+					<tr>
+						<td class="square empty"></td>
+						<td class="square off clicky" onclick="toggle_bit(this, 1)"></td>
+					</tr>
+				</table>
+				
+				<table class="rule-bit-table">
+					<tr>
+						<td class="square on"></td>
+						<td class="square off"></td>
+						<td class="square on"></td>
+					</tr>
+					<tr>
+						<td class="square empty"></td>
+						<td class="square off clicky" onclick="toggle_bit(this, 2)"></td>
+					</tr>
+				</table>
+				
+				<table class="rule-bit-table">
+					<tr>
+						<td class="square on"></td>
+						<td class="square off"></td>
+						<td class="square off"></td>
+					</tr>
+					<tr>
+						<td class="square empty"></td>
+						<td class="square on clicky" onclick="toggle_bit(this, 3)"></td>
+					</tr>
+				</table>
+				
+				<table class="rule-bit-table">
+					<tr>
+						<td class="square off"></td>
+						<td class="square on"></td>
+						<td class="square on"></td>
+					</tr>
+					<tr>
+						<td class="square empty"></td>
+						<td class="square off clicky" onclick="toggle_bit(this, 4)"></td>
+					</tr>
+				</table>
+				
+				<table class="rule-bit-table">
+					<tr>
+						<td class="square off"></td>
+						<td class="square on"></td>
+						<td class="square off"></td>
+					</tr>
+					<tr>
+						<td class="square empty"></td>
+						<td class="square on clicky" onclick="toggle_bit(this, 5)"></td>
+					</tr>
+				</table>
+				
+				<table class="rule-bit-table">
+					<tr>
+						<td class="square off"></td>
+						<td class="square off"></td>
+						<td class="square on"></td>
+					</tr>
+					<tr>
+						<td class="square empty"></td>
+						<td class="square on clicky" onclick="toggle_bit(this, 6)"></td>
+					</tr>
+				</table>
+				
+				<table class="rule-bit-table">
+					<tr>
+						<td class="square off"></td>
+						<td class="square off"></td>
+						<td class="square off"></td>
+					</tr>
+					<tr>
+						<td class="square empty"></td>
+						<td class="square off clicky" onclick="toggle_bit(this, 7)"></td>
+					</tr>
+				</table>
+				
+				<div id="rule-number">
+					<div>
+						= <span>22</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 		<div>
 			<canvas id="canvas" height="1200"></canvas>
 			
 			<div id="content">
-				<div class="rule-container">
-					<div>
-						<table class="rule-bit-table">
-							<tbody>
-								<tr>
-									<td class="square on"></td>
-									<td class="square on"></td>
-									<td class="square on"></td>
-								</tr>
-								<tr>
-									<td class="square empty"></td>
-									<td class="square off clicky" onclick="toggle_bit(this, 0)"></td>
-								</tr>
-							</tbody>
-						</table>
-						
-						<table class="rule-bit-table">
-							<tr>
-								<td class="square on"></td>
-								<td class="square on"></td>
-								<td class="square off"></td>
-							</tr>
-							<tr>
-								<td class="square empty"></td>
-								<td class="square off clicky" onclick="toggle_bit(this, 1)"></td>
-							</tr>
-						</table>
-						
-						<table class="rule-bit-table">
-							<tr>
-								<td class="square on"></td>
-								<td class="square off"></td>
-								<td class="square on"></td>
-							</tr>
-							<tr>
-								<td class="square empty"></td>
-								<td class="square off clicky" onclick="toggle_bit(this, 2)"></td>
-							</tr>
-						</table>
-						
-						<table class="rule-bit-table">
-							<tr>
-								<td class="square on"></td>
-								<td class="square off"></td>
-								<td class="square off"></td>
-							</tr>
-							<tr>
-								<td class="square empty"></td>
-								<td class="square on clicky" onclick="toggle_bit(this, 3)"></td>
-							</tr>
-						</table>
-						
-						<table class="rule-bit-table">
-							<tr>
-								<td class="square off"></td>
-								<td class="square on"></td>
-								<td class="square on"></td>
-							</tr>
-							<tr>
-								<td class="square empty"></td>
-								<td class="square off clicky" onclick="toggle_bit(this, 4)"></td>
-							</tr>
-						</table>
-						
-						<table class="rule-bit-table">
-							<tr>
-								<td class="square off"></td>
-								<td class="square on"></td>
-								<td class="square off"></td>
-							</tr>
-							<tr>
-								<td class="square empty"></td>
-								<td class="square on clicky" onclick="toggle_bit(this, 5)"></td>
-							</tr>
-						</table>
-						
-						<table class="rule-bit-table">
-							<tr>
-								<td class="square off"></td>
-								<td class="square off"></td>
-								<td class="square on"></td>
-							</tr>
-							<tr>
-								<td class="square empty"></td>
-								<td class="square on clicky" onclick="toggle_bit(this, 6)"></td>
-							</tr>
-						</table>
-						
-						<table class="rule-bit-table">
-							<tr>
-								<td class="square off"></td>
-								<td class="square off"></td>
-								<td class="square off"></td>
-							</tr>
-							<tr>
-								<td class="square empty"></td>
-								<td class="square off clicky" onclick="toggle_bit(this, 7)"></td>
-							</tr>
-						</table>
-						
-						<div id="rule-number">
-							<div>
-								= <span>22</span>
-							</div>
-						</div>
-					</div>
-				</div>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mattis neque id neque commodo, eget tristique ligula aliquam. Integer in suscipit mauris. Fusce viverra velit non suscipit facilisis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec posuere est id eleifend lacinia. Curabitur auctor leo quis massa suscipit maximus. Aenean eu urna commodo, tempor ex eu, facilisis nulla. Donec sed diam a orci hendrerit feugiat et et orci. Suspendisse nec velit porttitor, sagittis purus et, porta neque. Phasellus facilisis consectetur gravida. Praesent ut risus id diam bibendum congue. Fusce sit amet hendrerit libero, ac viverra urna. Praesent quis efficitur nulla, quis tincidunt nunc.</p>
 				
-				<div id="text">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mattis neque id neque commodo, eget tristique ligula aliquam. Integer in suscipit mauris. Fusce viverra velit non suscipit facilisis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec posuere est id eleifend lacinia. Curabitur auctor leo quis massa suscipit maximus. Aenean eu urna commodo, tempor ex eu, facilisis nulla. Donec sed diam a orci hendrerit feugiat et et orci. Suspendisse nec velit porttitor, sagittis purus et, porta neque. Phasellus facilisis consectetur gravida. Praesent ut risus id diam bibendum congue. Fusce sit amet hendrerit libero, ac viverra urna. Praesent quis efficitur nulla, quis tincidunt nunc.</p>
-					
-					<p>Mauris pellentesque cursus nisi, in consequat enim vulputate sit amet. Sed pulvinar, lorem ac pulvinar venenatis, arcu elit dignissim dolor, et porttitor erat nulla non nulla. Mauris efficitur eu ante eu ornare. Vivamus eget risus at nibh tempus aliquam. Aliquam ut efficitur diam. Donec suscipit maximus risus vitae finibus. Vivamus non quam sollicitudin, egestas quam nec, auctor diam. Quisque nec quam neque. Nam mattis lacus vel egestas interdum. In ullamcorper condimentum tempus. Pellentesque vulputate enim leo, ut ultricies quam pretium sed. Vivamus tempor ante vitae enim auctor feugiat. Sed ullamcorper et elit sit amet maximus. Fusce nec ex sapien.</p>
-					
-					<p>Nunc lobortis suscipit gravida. Fusce congue ex at ipsum consectetur mattis. Nulla aliquet lectus maximus, facilisis sem in, aliquam lorem. Nullam in facilisis eros. Curabitur maximus venenatis ipsum. Pellentesque sed neque at elit tincidunt maximus. Integer neque nibh, vestibulum vel convallis eget, tempor ac sem. Curabitur maximus condimentum semper. Pellentesque leo turpis, consequat id massa ac, laoreet luctus velit. Quisque ac eleifend ligula. Ut id neque eu purus faucibus accumsan quis eu diam. Donec lacinia turpis vitae nibh tincidunt, ut accumsan sapien tempus. Pellentesque dignissim tincidunt risus sed iaculis. Fusce id est lorem. Donec eu gravida dolor. Ut posuere convallis cursus.</p>
-					
-					<p>Quisque volutpat nulla volutpat, convallis leo et, condimentum ex. Etiam accumsan nunc vitae neque mollis placerat. Curabitur vitae dignissim libero, ac sagittis felis. Sed convallis nibh eu ipsum lobortis, eu scelerisque enim dapibus. Vivamus sit amet molestie ipsum, at dignissim magna. Suspendisse sagittis odio in rhoncus tempor. Vestibulum sollicitudin malesuada orci sed varius. Curabitur eget feugiat nisl. Ut quis pharetra sapien. Vivamus id sollicitudin orci. Morbi in eleifend tellus, quis dignissim felis. Donec lacinia luctus orci, quis cursus diam viverra ac. Duis orci lectus, molestie in facilisis suscipit, posuere ac urna. Nulla quis augue eget turpis rhoncus sagittis nec at enim. Etiam lobortis placerat ante sed molestie.</p>
-					
-					<p>Sed dolor libero, ultricies vel ligula ac, interdum porttitor purus. Morbi sagittis justo sed leo ultrices, ac porttitor tortor laoreet. Aenean tristique lacinia ante ut blandit. Aenean a commodo nunc. Pellentesque ut neque bibendum, venenatis enim vitae, elementum libero. Vivamus fringilla tincidunt ante, in hendrerit urna iaculis vel. Aliquam bibendum pharetra nunc id lobortis. Nullam id gravida tortor. Proin consectetur congue rutrum.</p>
-					
-					<p>Quisque volutpat nulla volutpat, convallis leo et, condimentum ex. Etiam accumsan nunc vitae neque mollis placerat. Curabitur vitae dignissim libero, ac sagittis felis. Sed convallis nibh eu ipsum lobortis, eu scelerisque enim dapibus. Vivamus sit amet molestie ipsum, at dignissim magna. Suspendisse sagittis odio in rhoncus tempor. Vestibulum sollicitudin malesuada orci sed varius. Curabitur eget feugiat nisl. Ut quis pharetra sapien. Vivamus id sollicitudin orci. Morbi in eleifend tellus, quis dignissim felis. Donec lacinia luctus orci, quis cursus diam viverra ac. Duis orci lectus, molestie in facilisis suscipit, posuere ac urna. Nulla quis augue eget turpis rhoncus sagittis nec at enim. Etiam lobortis placerat ante sed molestie.</p>
-					
-					<p>Sed dolor libero, ultricies vel ligula ac, interdum porttitor purus. Morbi sagittis justo sed leo ultrices, ac porttitor tortor laoreet. Aenean tristique lacinia ante ut blandit. Aenean a commodo nunc. Pellentesque ut neque bibendum, venenatis enim vitae, elementum libero. Vivamus fringilla tincidunt ante, in hendrerit urna iaculis vel. Aliquam bibendum pharetra nunc id lobortis. Nullam id gravida tortor. Proin consectetur congue rutrum.</p>
-				</div>
+				<p>Mauris pellentesque cursus nisi, in consequat enim vulputate sit amet. Sed pulvinar, lorem ac pulvinar venenatis, arcu elit dignissim dolor, et porttitor erat nulla non nulla. Mauris efficitur eu ante eu ornare. Vivamus eget risus at nibh tempus aliquam. Aliquam ut efficitur diam. Donec suscipit maximus risus vitae finibus. Vivamus non quam sollicitudin, egestas quam nec, auctor diam. Quisque nec quam neque. Nam mattis lacus vel egestas interdum. In ullamcorper condimentum tempus. Pellentesque vulputate enim leo, ut ultricies quam pretium sed. Vivamus tempor ante vitae enim auctor feugiat. Sed ullamcorper et elit sit amet maximus. Fusce nec ex sapien.</p>
+				
+				<p>Nunc lobortis suscipit gravida. Fusce congue ex at ipsum consectetur mattis. Nulla aliquet lectus maximus, facilisis sem in, aliquam lorem. Nullam in facilisis eros. Curabitur maximus venenatis ipsum. Pellentesque sed neque at elit tincidunt maximus. Integer neque nibh, vestibulum vel convallis eget, tempor ac sem. Curabitur maximus condimentum semper. Pellentesque leo turpis, consequat id massa ac, laoreet luctus velit. Quisque ac eleifend ligula. Ut id neque eu purus faucibus accumsan quis eu diam. Donec lacinia turpis vitae nibh tincidunt, ut accumsan sapien tempus. Pellentesque dignissim tincidunt risus sed iaculis. Fusce id est lorem. Donec eu gravida dolor. Ut posuere convallis cursus.</p>
+				
+				<p>Quisque volutpat nulla volutpat, convallis leo et, condimentum ex. Etiam accumsan nunc vitae neque mollis placerat. Curabitur vitae dignissim libero, ac sagittis felis. Sed convallis nibh eu ipsum lobortis, eu scelerisque enim dapibus. Vivamus sit amet molestie ipsum, at dignissim magna. Suspendisse sagittis odio in rhoncus tempor. Vestibulum sollicitudin malesuada orci sed varius. Curabitur eget feugiat nisl. Ut quis pharetra sapien. Vivamus id sollicitudin orci. Morbi in eleifend tellus, quis dignissim felis. Donec lacinia luctus orci, quis cursus diam viverra ac. Duis orci lectus, molestie in facilisis suscipit, posuere ac urna. Nulla quis augue eget turpis rhoncus sagittis nec at enim. Etiam lobortis placerat ante sed molestie.</p>
+				
+				<p>Sed dolor libero, ultricies vel ligula ac, interdum porttitor purus. Morbi sagittis justo sed leo ultrices, ac porttitor tortor laoreet. Aenean tristique lacinia ante ut blandit. Aenean a commodo nunc. Pellentesque ut neque bibendum, venenatis enim vitae, elementum libero. Vivamus fringilla tincidunt ante, in hendrerit urna iaculis vel. Aliquam bibendum pharetra nunc id lobortis. Nullam id gravida tortor. Proin consectetur congue rutrum.</p>
 			</div>
 		</div>
 	</body>
