@@ -1,7 +1,10 @@
+var bit_elems;
 var rule_num_elem;
 var num_input_elem;
 var canvas;
 var ctx;
+
+const safety_cells = 60;
 
 var rule = num_to_bits(22);
 
@@ -40,8 +43,11 @@ function init_canvas() {
 
 function update_rule_num() {
 	requires_rule_num();
+	requires_num_input();
 	
-	rule_num_elem.innerText = bits_to_num(rule);
+	let num = bits_to_num(rule);
+	rule_num_elem.innerText = num;
+	num_input_elem.value = num;
 	
 	run_elementary();
 	render();
@@ -50,6 +56,7 @@ function update_rule_num() {
 function show_num_input() {
 	requires_rule_num();
 	requires_num_input();
+	
 	rule_num_elem.classList.add("no-display");
 	num_input_elem.classList.remove("no-display");
 	num_input_elem.focus();
@@ -58,11 +65,23 @@ function show_num_input() {
 function update_num_input() {
 	requires_rule_num();
 	requires_num_input();
+	requires_bits();
+	
 	num_input_elem.classList.add("no-display");
 	rule_num_elem.classList.remove("no-display");
 	
 	rule = num_to_bits(+num_input_elem.value);
 	update_rule_num();
+	for(let i = 0; i < rule.length; i++) {
+		let bit_elem = bit_elems[i];
+		if(rule[i]) {
+			bit_elem.classList.add("on");
+			bit_elem.classList.remove("off");
+		} else {
+			bit_elem.classList.add("off");
+			bit_elem.classList.remove("on");
+		}
+	}
 }
 
 function requires_rule_num() {
@@ -73,6 +92,11 @@ function requires_rule_num() {
 function requires_num_input() {
 	if(!num_input_elem)
 		num_input_elem = document.getElementById("num-input");
+}
+
+function requires_bits() {
+	if(!bit_elems)
+		bit_elems = Array.from(document.querySelectorAll(".rule-bit-table .clicky"));
 }
 
 function render() {
@@ -90,7 +114,7 @@ function render() {
 	
 	for(let y = 0; y < rows.length; y++) {
 		let cells = rows[y];
-		for(let x = 0; x < cells.length; x++) {
+		for(let x = safety_cells; x < cells.length - safety_cells; x++) {
 			if(cells[x])
 				ctx.fillRect((x - mid_cell_i) * 20 + mid_canvas - 10, y * 20, 20, 20);
 		}
@@ -114,7 +138,7 @@ function run_elementary() {
 }
 
 function cells_for_width(width) {
-	return Math.ceil(width / 20) + 120 | 1;
+	return Math.ceil(width / 20) + safety_cells * 2 | 1;
 }
 
 window.addEventListener("resize", render, true);
