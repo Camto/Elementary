@@ -36,25 +36,60 @@ hr {
 	border: 1px solid black;
 	width: 20px;
 	height: 21px;
+	font-family: monospace;
+	font-size: 17px;
+	font-weight: bold;
+	text-align: center;
 }
 
-.fading {
+.square.off.fading {
 	border: 1px dashed #313131;
+	color: #313131;
 }
 
-.faded {
+.square.off.faded {
 	border: 1px dotted #5f5f5f;
+	color: #5f5f5f;
 }
 
-.on {
+.square.on.fading {
+	border: 1px dashed #313131;
+	background-color: #313131;
+}
+
+.square.on.faded {
+	border: 1px dotted #5f5f5f;
+	background-color: #5f5f5f;
+}
+
+.square.on {
 	background-color: black;
+	color: white;
 }
 
-.off {
+.square.on::after {
+	content: "1";
+}
+
+.square.off {
 	background-color: white;
+	color: black;
 }
 
-.empty {
+.square.off::after {
+	content: "0";
+}
+
+.square.undefined {
+	background: linear-gradient(to bottom right, white 50%, black 50%);
+	/*color: #ff630f;*/
+}
+
+/*.square.undefined::after {
+	content: "?";
+}*/
+
+.square.empty {
 	border: none;
 }
 
@@ -83,6 +118,12 @@ table {
 	display: grid;
 	place-items: center;
 	margin: 40px 0px 40px 0px;
+}
+
+.rule-container.row {
+	display: grid;
+	place-items: center;
+	margin: -10px 0px -10px 0px;
 }
 
 .rule-container > div {
@@ -146,7 +187,7 @@ p, blockquote {
 }
 
 blockquote {
-	border-left: 4px solid #ccc;
+	border-left: 4px solid #ffb62e /*rgb(167, 167, 167)*/;
 	padding: 4px 16px 4px 16px;
 	margin-left: 0px;
 }

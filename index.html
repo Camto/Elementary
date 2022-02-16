@@ -135,22 +135,22 @@
 				</blockquote>
 				
 				<p>
-					The world of cellular automata is a vast one, filled with all sorts of strange pixel patterns. In this article, I'd like to introduce you to 256 of my personal favorites: the 256 elementary cellular automata. Don't worry about how many there are, they all work roughly the same way. First off, they're all one dimensional and only allow cells to be 1
-					(<table class="cell-table in-text">
+					The world of cellular automata is a vast one, filled with all sorts of strange pixel patterns. In this article, I'd like to introduce you to 256 of my personal favorites: the 256 elementary cellular automata. Don't worry about how many there are, they all work roughly the same way. First off, they're all one dimensional and only allow cells to be
+					<table class="cell-table in-text">
 						<tbody>
 							<tr>
 								<td class="square on"></td>
 							</tr>
 						</tbody>
-					</table>)
-					or 0
-					(<table class="cell-table in-text">
+					</table>
+					or
+					<table class="cell-table in-text">
 						<tbody>
 							<tr>
 								<td class="square off"></td>
 							</tr>
 						</tbody>
-					</table>). Each time the grid (just a simple row here) evolves, each cell's new number is a combination of its previous number with the numbers of its neighbors previous numbers. The only difference between the elementary cellular automata are they sets of rules on exactly how to combine those numbers each time. I'll use an example to show you how to find the evolution rule corresponding to any given elementary cellular automaton. I'll use the automaton number 70, also called <a class="rule-button clicky" onclick="update_rule_to(70)">rule 70</a> (click to see it in action). To find its rule, you have to first convert its number into an 8-bit binary number, which for 70 is <code>01000110</code>. Then, you have to assign each bit, in order, to a specific case:
+					</table>. Each time the grid (just a simple row, since its one dimensional) evolves, each cell's new number is a combination of its previous number with the numbers of its neighbors previous numbers. The only difference between the elementary cellular automata are their sets of rules on exactly how to combine those numbers. I'll use an example to show you how to find the evolution rule corresponding to any given elementary cellular automaton. I'll use the automaton number 70, also called <a class="rule-button clicky" onclick="update_rule_to(70)">rule 70</a> (click to see it in action). To find its rule, you have to first convert its number into an 8-bit binary number, which for 70 is <code>01000110</code>. Then, you have to assign each bit, in order, to a specific case:
 				</p>
 				
 				<div class="rule-container">
@@ -255,28 +255,317 @@
 					</div>
 				</div>
 				
+				<p>The top 3 bits of each case are what are used to tell how a cell evolves. Let's say the current row of cells is like so:</p>
+				
+				<div class="rule-container row">
+					<div>
+						<table class="cell-table">
+							<tbody>
+								<tr>
+									<td class="faded square off"></td>
+									<td class="fading square off"></td>
+									<td class="square off"></td>
+									<td class="square off"></td>
+									<td class="square on"></td>
+									<td class="square on"></td>
+									<td class="square off"></td>
+									<td class="square off"></td>
+									<td class="fading square off"></td>
+									<td class="faded square off"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				
 				<p>
-					The top 3 bits of each case are what are used to tell how a cell evolves. So if the row of cells is
+					First off, the infinite
 					<table class="cell-table in-text">
 						<tbody>
 							<tr>
-								<td class="faded square off"></td>
-								<td class="faded square off"></td>
-								<td class="fading square off"></td>
-								<td class="fading square off"></td>
 								<td class="square off"></td>
-								<td class="square on"></td>
-								<td class="square on"></td>
-								<td class="square off"></td>
-								<td class="fading square off"></td>
-								<td class="fading square off"></td>
-								<td class="faded square off"></td>
-								<td class="faded square off"></td>
 							</tr>
 						</tbody>
+					</table>s on either side remain that way, because the last case,
+					<table class="cell-table in-text">
+						<tr>
+							<td class="square off"></td>
+							<td class="square off"></td>
+							<td class="square off"></td>
+						</tr>
+						<tr>
+							<td class="square empty"></td>
+							<td class="square off"></td>
+						</tr>
 					</table>,
-					then
+					means that every triple of
+					<table class="cell-table in-text">
+						<tr>
+							<td class="square off"></td>
+							<td class="square off"></td>
+							<td class="square off"></td>
+						</tr>
+					</table>
+					(overlapping allowed) will have a single
+					<table class="cell-table in-text">
+						<tbody>
+							<tr>
+								<td class="square off"></td>
+							</tr>
+						</tbody>
+					</table>
+					appear underneath the middle
+					<table class="cell-table in-text">
+						<tbody>
+							<tr>
+								<td class="square off"></td>
+							</tr>
+						</tbody>
+					</table>.
+					That leaves us with:
 				</p>
+				
+				<div class="rule-container row">
+					<div>
+						<table class="cell-table">
+							<tbody>
+								<tr>
+									<td class="faded square off"></td>
+									<td class="fading square off"></td>
+									<td class="square off"></td>
+									<td class="square undefined"></td>
+									<td class="square undefined"></td>
+									<td class="square undefined"></td>
+									<td class="square undefined"></td>
+									<td class="square off"></td>
+									<td class="fading square off"></td>
+									<td class="faded square off"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				
+				<p>
+					as the start of the next row. For the leftmost still unknown cell, as its previous state and its neighbors were
+					<table class="cell-table in-text">
+						<tr>
+							<td class="square off"></td>
+							<td class="square off"></td>
+							<td class="square on"></td>
+						</tr>
+					</table>, the before last case
+					<table class="cell-table in-text">
+						<tr>
+							<td class="square off"></td>
+							<td class="square off"></td>
+							<td class="square on"></td>
+						</tr>
+						<tr>
+							<td class="square empty"></td>
+							<td class="square on"></td>
+						</tr>
+					</table>
+					applies, meaning in the new row it'll be a
+					<table class="cell-table in-text">
+						<tbody>
+							<tr>
+								<td class="square on"></td>
+							</tr>
+						</tbody>
+					</table>.
+					The next cell's previous state and neighbors were
+					<table class="cell-table in-text">
+						<tr>
+							<td class="square off"></td>
+							<td class="square on"></td>
+							<td class="square on"></td>
+						</tr>
+					</table>,
+					appliying the case
+					<table class="cell-table in-text">
+						<tr>
+							<td class="square off"></td>
+							<td class="square on"></td>
+							<td class="square on"></td>
+						</tr>
+						<tr>
+							<td class="square empty"></td>
+							<td class="square off"></td>
+						</tr>
+					</table>, resulting in
+					<table class="cell-table in-text">
+						<tbody>
+							<tr>
+								<td class="square off"></td>
+							</tr>
+						</tbody>
+					</table>
+					now. After that, the
+					<table class="cell-table in-text">
+						<tr>
+							<td class="square on"></td>
+							<td class="square on"></td>
+							<td class="square off"></td>
+						</tr>
+					</table>
+					results in a
+					<table class="cell-table in-text">
+						<tbody>
+							<tr>
+								<td class="square on"></td>
+							</tr>
+						</tbody>
+					</table>
+					and the
+					<table class="cell-table in-text">
+						<tr>
+							<td class="square on"></td>
+							<td class="square off"></td>
+							<td class="square off"></td>
+						</tr>
+					</table>
+					in a
+					<table class="cell-table in-text">
+						<tbody>
+							<tr>
+								<td class="square off"></td>
+							</tr>
+						</tbody>
+					</table>.
+					Putting all those in where they belong, the resulting row looks like
+				</p>
+				
+				<div class="rule-container row">
+					<div>
+						<table class="cell-table">
+							<tbody>
+								<tr>
+									<td class="faded square off"></td>
+									<td class="fading square off"></td>
+									<td class="square off"></td>
+									<td class="square on"></td>
+									<td class="square off"></td>
+									<td class="square on"></td>
+									<td class="square off"></td>
+									<td class="square off"></td>
+									<td class="fading square off"></td>
+									<td class="faded square off"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				
+				<p>If we ran <i>all</i> these steps again, we would get</p>
+				
+				<div class="rule-container row">
+					<div>
+						<table class="cell-table">
+							<tbody>
+								<tr>
+									<td class="faded square off"></td>
+									<td class="fading square off"></td>
+									<td class="square on"></td>
+									<td class="square on"></td>
+									<td class="square off"></td>
+									<td class="square on"></td>
+									<td class="square off"></td>
+									<td class="square off"></td>
+									<td class="fading square off"></td>
+									<td class="faded square off"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				
+				<p>and then</p>
+				
+				<div class="rule-container row">
+					<div>
+						<table class="cell-table">
+							<tbody>
+								<tr>
+									<td class="faded square off"></td>
+									<td class="fading square on"></td>
+									<td class="square off"></td>
+									<td class="square on"></td>
+									<td class="square off"></td>
+									<td class="square on"></td>
+									<td class="square off"></td>
+									<td class="square off"></td>
+									<td class="fading square off"></td>
+									<td class="faded square off"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				
+				<p>Elementary cellular automata are typically not shown using an individual row, but collecting the rows together, making a two dimensional image, where each row evolves from the one above. In this example, that would look like this:</p>
+				
+				<div class="rule-container row">
+					<div>
+						<table class="cell-table">
+							<tbody>
+								<tr>
+									<td class="faded square off"></td>
+									<td class="fading square off"></td>
+									<td class="square off"></td>
+									<td class="square off"></td>
+									<td class="square on"></td>
+									<td class="square on"></td>
+									<td class="square off"></td>
+									<td class="square off"></td>
+									<td class="fading square off"></td>
+									<td class="faded square off"></td>
+								</tr>
+								
+								<tr>
+									<td class="faded square off"></td>
+									<td class="fading square off"></td>
+									<td class="square off"></td>
+									<td class="square on"></td>
+									<td class="square off"></td>
+									<td class="square on"></td>
+									<td class="square off"></td>
+									<td class="square off"></td>
+									<td class="fading square off"></td>
+									<td class="faded square off"></td>
+								</tr>
+								
+								<tr>
+									<td class="faded square off"></td>
+									<td class="fading square off"></td>
+									<td class="square on"></td>
+									<td class="square on"></td>
+									<td class="square off"></td>
+									<td class="square on"></td>
+									<td class="square off"></td>
+									<td class="square off"></td>
+									<td class="fading square off"></td>
+									<td class="faded square off"></td>
+								</tr>
+								
+								<tr>
+									<td class="faded square off"></td>
+									<td class="fading square on"></td>
+									<td class="square off"></td>
+									<td class="square on"></td>
+									<td class="square off"></td>
+									<td class="square on"></td>
+									<td class="square off"></td>
+									<td class="square off"></td>
+									<td class="fading square off"></td>
+									<td class="faded square off"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				
+				<p>If you look at how <a class="rule-button clicky" onclick="update_rule_to(70)">rule 70</a> (click to see it) actually looks, you'll see these are exactly the second through fifth rows (I just skipped the first row for the example).</p>
 				
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mattis neque id neque commodo, eget tristique ligula aliquam. Integer in suscipit mauris. Fusce viverra velit non suscipit facilisis.
