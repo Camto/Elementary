@@ -123,7 +123,7 @@
 		</div>
 		
 		<div>
-			<canvas id="canvas" height="1800"></canvas>
+			<canvas id="canvas" height="2400"></canvas>
 			
 			<div id="content">
 				<button id="show-canvas-button" class="clicky" onclick="toggle_lower()">
@@ -565,6 +565,18 @@
 				
 				<p>If you look at how <a class="rule-button clicky" onclick="update_rule_to(70)">rule 70</a> (click to see it) actually looks, you'll see these are exactly the second through fifth rows (I just skipped the first row for the example).</p>
 				
+				<h3>Some Rules I Find Neat</h3>
+				
+				<p>Here are a bunch of different rules to check out:</p>
+				
+				<ul>
+					<li><a class="rule-button clicky" onclick="update_rule_to(73)">Rule 73</a> and <a class="rule-button clicky" onclick="update_rule_to(105)">rule 105</a> are just generally pretty.</li>
+					<li><a class="rule-button clicky" onclick="update_rule_to(57)">Rule 57</a> sort of looks like a 3d pyramid lit on one side.</li>
+					<li><a class="rule-button clicky" onclick="update_rule_to(54)">Rule 54</a> makes a whole bunch of small triangles.</li>
+					<li><a class="rule-button clicky" onclick="update_rule_to(50)">Rule 50</a> generates an ever expanding checkerboard pattern.</li>
+					<li><a class="rule-button clicky" onclick="update_rule_to(110)">Rule 110</a> is actually Turing-complete, if you want to look that up.</li>
+				</ul>
+				
 				<h3>A Fractal Hidden Within</h3>
 				
 				<blockquote>A fractal is an infinite pattern that is typically self similar even at different scales. Most fractals are made by repeating a process infinitely many times, so approximations are needed to draw one.</blockquote>
@@ -586,6 +598,10 @@
 				<img src="./triangle4.png" />
 				
 				<p>What's so neat about all this, is that this same patterns is simulated by several different elementary cellular automata, my favorite being <a class="rule-button clicky" onclick="update_rule_to(22)">rule 22</a>. Another interesting one is <a class="rule-button clicky" onclick="update_rule_to(102)">rule 102</a>, which looks like a rotated Sierpiński triangle.</p>
+				
+				<h3>Making Your Own!</h3>
+				
+				<p>You can click on the bottom bit in any of the cases in the visualization at the top of the page to toggle it. Or, you can click on the number to put a number 0-255 corresponding to a rule number. Go wild!</p>
 			</div>
 		</div>
 	</body>

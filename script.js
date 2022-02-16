@@ -6,7 +6,7 @@ var content_elem;
 var canvas;
 var ctx;
 
-const safety_cells = 60;
+const safety_cells = 120;
 
 var rule = num_to_bits(22);
 
@@ -180,7 +180,7 @@ function run_elementary() {
 	
 	rows = [cells];
 	
-	for(let _ of Array(90)) {
+	for(let _ of Array(120)) {
 		cells = cells.map((mid_cell, i) => {
 			let left_cell = i > 0 ? cells[i - 1] : false;
 			let right_cell = i < cell_num - 1 ? cells[i + 1] : false;
