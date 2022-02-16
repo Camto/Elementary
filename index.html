@@ -13,9 +13,9 @@
 			<h2>A short exploration of elementary cellular automata</h2>
 		</div>
 		
-		<div class="rule-container">
+		<div class="rule-container main-rule-container">
 			<div>
-				<table class="rule-bit-table">
+				<table class="cell-table">
 					<tbody>
 						<tr>
 							<td class="square on"></td>
@@ -29,7 +29,7 @@
 					</tbody>
 				</table>
 				
-				<table class="rule-bit-table">
+				<table class="cell-table">
 					<tr>
 						<td class="square on"></td>
 						<td class="square on"></td>
@@ -41,7 +41,7 @@
 					</tr>
 				</table>
 				
-				<table class="rule-bit-table">
+				<table class="cell-table">
 					<tr>
 						<td class="square on"></td>
 						<td class="square off"></td>
@@ -53,7 +53,7 @@
 					</tr>
 				</table>
 				
-				<table class="rule-bit-table">
+				<table class="cell-table">
 					<tr>
 						<td class="square on"></td>
 						<td class="square off"></td>
@@ -65,7 +65,7 @@
 					</tr>
 				</table>
 				
-				<table class="rule-bit-table">
+				<table class="cell-table">
 					<tr>
 						<td class="square off"></td>
 						<td class="square on"></td>
@@ -77,7 +77,7 @@
 					</tr>
 				</table>
 				
-				<table class="rule-bit-table">
+				<table class="cell-table">
 					<tr>
 						<td class="square off"></td>
 						<td class="square on"></td>
@@ -89,7 +89,7 @@
 					</tr>
 				</table>
 				
-				<table class="rule-bit-table">
+				<table class="cell-table">
 					<tr>
 						<td class="square off"></td>
 						<td class="square off"></td>
@@ -101,7 +101,7 @@
 					</tr>
 				</table>
 				
-				<table class="rule-bit-table">
+				<table class="cell-table">
 					<tr>
 						<td class="square off"></td>
 						<td class="square off"></td>
@@ -130,7 +130,159 @@
 					Show more
 				</button>
 				
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mattis neque id neque commodo, eget tristique ligula aliquam. Integer in suscipit mauris. Fusce viverra velit non suscipit facilisis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec posuere est id eleifend lacinia. Curabitur auctor leo quis massa suscipit maximus. Aenean eu urna commodo, tempor ex eu, facilisis nulla. Donec sed diam a orci hendrerit feugiat et et orci. Suspendisse nec velit porttitor, sagittis purus et, porta neque. Phasellus facilisis consectetur gravida. Praesent ut risus id diam bibendum congue. Fusce sit amet hendrerit libero, ac viverra urna. Praesent quis efficitur nulla, quis tincidunt nunc.</p>
+				<blockquote>
+					<p>A cellular automaton is an infinite grid of cells, each cell containing a number, and a set of rules for how those cells evolve over time.</p>
+				</blockquote>
+				
+				<p>
+					The world of cellular automata is a vast one, filled with all sorts of strange pixel patterns. In this article, I'd like to introduce you to 256 of my personal favorites: the 256 elementary cellular automata. Don't worry about how many there are, they all work roughly the same way. First off, they're all one dimensional and only allow cells to be 1
+					(<table class="cell-table in-text">
+						<tbody>
+							<tr>
+								<td class="square on"></td>
+							</tr>
+						</tbody>
+					</table>)
+					or 0
+					(<table class="cell-table in-text">
+						<tbody>
+							<tr>
+								<td class="square off"></td>
+							</tr>
+						</tbody>
+					</table>). Each time the grid (just a simple row here) evolves, each cell's new number is a combination of its previous number with the numbers of its neighbors previous numbers. The only difference between the elementary cellular automata are they sets of rules on exactly how to combine those numbers each time. I'll use an example to show you how to find the evolution rule corresponding to any given elementary cellular automaton. I'll use the automaton number 70, also called <a class="rule-button clicky" onclick="update_rule_to(70)">rule 70</a> (click to see it in action). To find its rule, you have to first convert its number into an 8-bit binary number, which for 70 is <code>01000110</code>. Then, you have to assign each bit, in order, to a specific case:
+				</p>
+				
+				<div class="rule-container">
+					<div>
+						<table class="cell-table">
+							<tbody>
+								<tr>
+									<td class="square on"></td>
+									<td class="square on"></td>
+									<td class="square on"></td>
+								</tr>
+								<tr>
+									<td class="square empty"></td>
+									<td class="square off"></td>
+								</tr>
+							</tbody>
+						</table>
+						
+						<table class="cell-table">
+							<tr>
+								<td class="square on"></td>
+								<td class="square on"></td>
+								<td class="square off"></td>
+							</tr>
+							<tr>
+								<td class="square empty"></td>
+								<td class="square on"></td>
+							</tr>
+						</table>
+						
+						<table class="cell-table">
+							<tr>
+								<td class="square on"></td>
+								<td class="square off"></td>
+								<td class="square on"></td>
+							</tr>
+							<tr>
+								<td class="square empty"></td>
+								<td class="square off"></td>
+							</tr>
+						</table>
+						
+						<table class="cell-table">
+							<tr>
+								<td class="square on"></td>
+								<td class="square off"></td>
+								<td class="square off"></td>
+							</tr>
+							<tr>
+								<td class="square empty"></td>
+								<td class="square off"></td>
+							</tr>
+						</table>
+						
+						<table class="cell-table">
+							<tr>
+								<td class="square off"></td>
+								<td class="square on"></td>
+								<td class="square on"></td>
+							</tr>
+							<tr>
+								<td class="square empty"></td>
+								<td class="square off"></td>
+							</tr>
+						</table>
+						
+						<table class="cell-table">
+							<tr>
+								<td class="square off"></td>
+								<td class="square on"></td>
+								<td class="square off"></td>
+							</tr>
+							<tr>
+								<td class="square empty"></td>
+								<td class="square on"></td>
+							</tr>
+						</table>
+						
+						<table class="cell-table">
+							<tr>
+								<td class="square off"></td>
+								<td class="square off"></td>
+								<td class="square on"></td>
+							</tr>
+							<tr>
+								<td class="square empty"></td>
+								<td class="square on"></td>
+							</tr>
+						</table>
+						
+						<table class="cell-table">
+							<tr>
+								<td class="square off"></td>
+								<td class="square off"></td>
+								<td class="square off"></td>
+							</tr>
+							<tr>
+								<td class="square empty"></td>
+								<td class="square off"></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				
+				<p>
+					The top 3 bits of each case are what are used to tell how a cell evolves. So if the row of cells is
+					<table class="cell-table in-text">
+						<tbody>
+							<tr>
+								<td class="faded square off"></td>
+								<td class="faded square off"></td>
+								<td class="fading square off"></td>
+								<td class="fading square off"></td>
+								<td class="square off"></td>
+								<td class="square on"></td>
+								<td class="square on"></td>
+								<td class="square off"></td>
+								<td class="fading square off"></td>
+								<td class="fading square off"></td>
+								<td class="faded square off"></td>
+								<td class="faded square off"></td>
+							</tr>
+						</tbody>
+					</table>,
+					then
+				</p>
+				
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mattis neque id neque commodo, eget tristique ligula aliquam. Integer in suscipit mauris. Fusce viverra velit non suscipit facilisis.
+					
+					Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec posuere est id eleifend lacinia. Curabitur auctor leo quis massa suscipit maximus. Aenean eu urna commodo, tempor ex eu, facilisis nulla. Donec sed diam a orci hendrerit feugiat et et orci. Suspendisse nec velit porttitor, sagittis purus et, porta neque. Phasellus facilisis consectetur gravida. Praesent ut risus id diam bibendum congue. Fusce sit amet hendrerit libero, ac viverra urna. Praesent quis efficitur nulla, quis tincidunt nunc.
+				</p>
 				
 				<p>Mauris pellentesque cursus nisi, in consequat enim vulputate sit amet. Sed pulvinar, lorem ac pulvinar venenatis, arcu elit dignissim dolor, et porttitor erat nulla non nulla. Mauris efficitur eu ante eu ornare. Vivamus eget risus at nibh tempus aliquam. Aliquam ut efficitur diam. Donec suscipit maximus risus vitae finibus. Vivamus non quam sollicitudin, egestas quam nec, auctor diam. Quisque nec quam neque. Nam mattis lacus vel egestas interdum. In ullamcorper condimentum tempus. Pellentesque vulputate enim leo, ut ultricies quam pretium sed. Vivamus tempor ante vitae enim auctor feugiat. Sed ullamcorper et elit sit amet maximus. Fusce nec ex sapien.</p>
 				

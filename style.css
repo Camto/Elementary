@@ -38,6 +38,14 @@ hr {
 	height: 21px;
 }
 
+.fading {
+	border: 1px dashed #313131;
+}
+
+.faded {
+	border: 1px dotted #5f5f5f;
+}
+
 .on {
 	background-color: black;
 }
@@ -54,11 +62,11 @@ hr {
 	cursor: pointer;
 }
 
-.rule-bit-table {
+.cell-table {
 	border-collapse: collapse;
 }
 
-.rule-bit-table td {
+.cell-table td {
 	padding: 0px;
 }
 
@@ -66,15 +74,25 @@ table {
 	display: inline-block;
 }
 
+.in-text {
+	margin-top: 4px;
+	margin-bottom: -4px;
+}
+
 .rule-container {
 	display: grid;
 	place-items: center;
-	margin-bottom: 60px;
+	margin: 40px 0px 40px 0px;
 }
 
 .rule-container > div {
 	display: flex;
 	gap: 15px;
+}
+
+.main-rule-container {
+	margin: 0px;
+	margin-bottom: 60px;
 }
 
 #rule-num-container {
@@ -123,8 +141,26 @@ input[type=text] {
 	margin-top: 60vh;
 }
 
-p {
+p, blockquote {
 	font-size: 20px;
+}
+
+blockquote {
+	border-left: 4px solid #ccc;
+	padding: 4px 16px 4px 16px;
+	margin-left: 0px;
+}
+
+.rule-button {
+	color: #ff8400;
+}
+
+.rule-button:active {
+	color: #ffb62e;
+}
+
+code {
+	font-family: monospace;
 }
 
 #show-canvas-button {

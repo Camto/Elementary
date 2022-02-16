@@ -66,7 +66,6 @@ function show_num_input() {
 function update_num_input() {
 	requires_rule_num();
 	requires_num_input();
-	requires_bits();
 	
 	num_input_elem.classList.add("no-display");
 	rule_num_elem.classList.remove("no-display");
@@ -74,18 +73,24 @@ function update_num_input() {
 	if(/^\d*$/.test(num_input_elem.value)) {
 		rule = num_to_bits(Math.min(+num_input_elem.value, 255));
 		update_rule_num();
-		for(let i = 0; i < rule.length; i++) {
-			let bit_elem = bit_elems[i];
-			if(rule[i]) {
-				bit_elem.classList.add("on");
-				bit_elem.classList.remove("off");
-			} else {
-				bit_elem.classList.add("off");
-				bit_elem.classList.remove("on");
-			}
-		}
+		update_rule_bits();
 	} else {
 		num_input_elem.value = bits_to_num(rule);
+	}
+}
+
+function update_rule_bits() {
+	requires_bits();
+	
+	for(let i = 0; i < rule.length; i++) {
+		let bit_elem = bit_elems[i];
+		if(rule[i]) {
+			bit_elem.classList.add("on");
+			bit_elem.classList.remove("off");
+		} else {
+			bit_elem.classList.add("off");
+			bit_elem.classList.remove("on");
+		}
 	}
 }
 
@@ -101,6 +106,14 @@ function toggle_lower(button_elem) {
 	}
 }
 
+function update_rule_to(num) {
+	rule = num_to_bits(num);
+	update_rule_num();
+	update_rule_bits();
+	
+	window.scrollTo({top: 0, behavior: "smooth"});
+}
+
 function requires_rule_num() {
 	if(!rule_num_elem)
 		rule_num_elem = document.getElementById("rule-num");
@@ -113,7 +126,7 @@ function requires_num_input() {
 
 function requires_bits() {
 	if(!bit_elems)
-		bit_elems = Array.from(document.querySelectorAll(".rule-bit-table .clicky"));
+		bit_elems = Array.from(document.querySelectorAll(".cell-table .clicky"));
 }
 
 function requires_content() {
