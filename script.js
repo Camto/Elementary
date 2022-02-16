@@ -1,6 +1,7 @@
 var bit_elems;
 var rule_num_elem;
 var num_input_elem;
+var toggle_button_elem;
 var content_elem;
 var canvas;
 var ctx;
@@ -94,24 +95,36 @@ function update_rule_bits() {
 	}
 }
 
-function toggle_lower(button_elem) {
+function toggle_lower() {
+	requires_toggle_button();
 	requires_content();
 	
 	if(!content_elem.classList.contains("lower")) {
 		content_elem.classList.add("lower");
-		button_elem.innerText = "Show less";
+		toggle_button_elem.innerText = "Show less";
 	} else {
 		content_elem.classList.remove("lower");
-		button_elem.innerText = "Show more";
+		toggle_button_elem.innerText = "Show more";
 	}
 }
 
 function update_rule_to(num) {
+	requires_num_input();
+	requires_content();
+	
 	rule = num_to_bits(num);
 	update_rule_num();
 	update_rule_bits();
 	
-	window.scrollTo({top: 0, behavior: "smooth"});
+	if(!content_elem.classList.contains("lower"))
+		toggle_lower();
+	
+	let body_rect = document.body.getBoundingClientRect();
+	let rule_num_rect = rule_num_elem.getBoundingClientRect();
+	window.scrollTo({
+		top: rule_num_rect.top - body_rect.top + 30,
+		behavior: "smooth"
+	});
 }
 
 function requires_rule_num() {
@@ -127,6 +140,11 @@ function requires_num_input() {
 function requires_bits() {
 	if(!bit_elems)
 		bit_elems = Array.from(document.querySelectorAll(".cell-table .clicky"));
+}
+
+function requires_toggle_button() {
+	if(!toggle_button_elem)
+		toggle_button_elem = document.getElementById("show-canvas-button");
 }
 
 function requires_content() {

@@ -10,7 +10,7 @@
 		<div id="title">
 			<h1>Elementary, My Dear Wolfram!</h1>
 			<div><hr /></div>
-			<h2>A short exploration of elementary cellular automata</h2>
+			<h2>A short exploration of the elementary cellular automata</h2>
 		</div>
 		
 		<div class="rule-container main-rule-container">
@@ -126,13 +126,11 @@
 			<canvas id="canvas" height="1800"></canvas>
 			
 			<div id="content">
-				<button id="show-canvas-button" class="clicky" onclick="toggle_lower(this)">
+				<button id="show-canvas-button" class="clicky" onclick="toggle_lower()">
 					Show more
 				</button>
 				
-				<blockquote>
-					<p>A cellular automaton is an infinite grid of cells, each cell containing a number, and a set of rules for how those cells evolve over time.</p>
-				</blockquote>
+				<blockquote>A cellular automaton is an infinite grid of cells, each cell containing a number, and a set of rules for how those cells evolve over time.</blockquote>
 				
 				<p>
 					The world of cellular automata is a vast one, filled with all sorts of strange pixel patterns. In this article, I'd like to introduce you to 256 of my personal favorites: the 256 elementary cellular automata. Don't worry about how many there are, they all work roughly the same way. First off, they're all one dimensional and only allow cells to be
@@ -503,7 +501,7 @@
 					</div>
 				</div>
 				
-				<p>Elementary cellular automata are typically not shown using an individual row, but collecting the rows together, making a two dimensional image, where each row evolves from the one above. In this example, that would look like this:</p>
+				<p>Elementary cellular automata are typically not shown using an individual row, but collecting the rows together. Doing that makes a two dimensional image, where each row evolves from the one above. In this example, that would look like this:</p>
 				
 				<div class="rule-container row">
 					<div>
@@ -567,29 +565,27 @@
 				
 				<p>If you look at how <a class="rule-button clicky" onclick="update_rule_to(70)">rule 70</a> (click to see it) actually looks, you'll see these are exactly the second through fifth rows (I just skipped the first row for the example).</p>
 				
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mattis neque id neque commodo, eget tristique ligula aliquam. Integer in suscipit mauris. Fusce viverra velit non suscipit facilisis.
-					
-					Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec posuere est id eleifend lacinia. Curabitur auctor leo quis massa suscipit maximus. Aenean eu urna commodo, tempor ex eu, facilisis nulla. Donec sed diam a orci hendrerit feugiat et et orci. Suspendisse nec velit porttitor, sagittis purus et, porta neque. Phasellus facilisis consectetur gravida. Praesent ut risus id diam bibendum congue. Fusce sit amet hendrerit libero, ac viverra urna. Praesent quis efficitur nulla, quis tincidunt nunc.
-				</p>
+				<h3>A Fractal Hidden Within</h3>
 				
-				<p>Mauris pellentesque cursus nisi, in consequat enim vulputate sit amet. Sed pulvinar, lorem ac pulvinar venenatis, arcu elit dignissim dolor, et porttitor erat nulla non nulla. Mauris efficitur eu ante eu ornare. Vivamus eget risus at nibh tempus aliquam. Aliquam ut efficitur diam. Donec suscipit maximus risus vitae finibus. Vivamus non quam sollicitudin, egestas quam nec, auctor diam. Quisque nec quam neque. Nam mattis lacus vel egestas interdum. In ullamcorper condimentum tempus. Pellentesque vulputate enim leo, ut ultricies quam pretium sed. Vivamus tempor ante vitae enim auctor feugiat. Sed ullamcorper et elit sit amet maximus. Fusce nec ex sapien.</p>
+				<blockquote>A fractal is an infinite pattern that is typically self similar even at different scales. Most fractals are made by repeating a process infinitely many times, so approximations are needed to draw one.</blockquote>
 				
-				<p>Nunc lobortis suscipit gravida. Fusce congue ex at ipsum consectetur mattis. Nulla aliquet lectus maximus, facilisis sem in, aliquam lorem. Nullam in facilisis eros. Curabitur maximus venenatis ipsum. Pellentesque sed neque at elit tincidunt maximus. Integer neque nibh, vestibulum vel convallis eget, tempor ac sem. Curabitur maximus condimentum semper. Pellentesque leo turpis, consequat id massa ac, laoreet luctus velit. Quisque ac eleifend ligula. Ut id neque eu purus faucibus accumsan quis eu diam. Donec lacinia turpis vitae nibh tincidunt, ut accumsan sapien tempus. Pellentesque dignissim tincidunt risus sed iaculis. Fusce id est lorem. Donec eu gravida dolor. Ut posuere convallis cursus.</p>
+				<p>I think one of the simplest fractals out there is the Sierpiński triangle. To make it, you must start with a simple triangle:</p>
 				
-				<p>Quisque volutpat nulla volutpat, convallis leo et, condimentum ex. Etiam accumsan nunc vitae neque mollis placerat. Curabitur vitae dignissim libero, ac sagittis felis. Sed convallis nibh eu ipsum lobortis, eu scelerisque enim dapibus. Vivamus sit amet molestie ipsum, at dignissim magna. Suspendisse sagittis odio in rhoncus tempor. Vestibulum sollicitudin malesuada orci sed varius. Curabitur eget feugiat nisl. Ut quis pharetra sapien. Vivamus id sollicitudin orci. Morbi in eleifend tellus, quis dignissim felis. Donec lacinia luctus orci, quis cursus diam viverra ac. Duis orci lectus, molestie in facilisis suscipit, posuere ac urna. Nulla quis augue eget turpis rhoncus sagittis nec at enim. Etiam lobortis placerat ante sed molestie.</p>
+				<img src="./triangle1.png" />
 				
-				<p>Sed dolor libero, ultricies vel ligula ac, interdum porttitor purus. Morbi sagittis justo sed leo ultrices, ac porttitor tortor laoreet. Aenean tristique lacinia ante ut blandit. Aenean a commodo nunc. Pellentesque ut neque bibendum, venenatis enim vitae, elementum libero. Vivamus fringilla tincidunt ante, in hendrerit urna iaculis vel. Aliquam bibendum pharetra nunc id lobortis. Nullam id gravida tortor. Proin consectetur congue rutrum.</p>
+				<p>Then, place two copies of it underneath it, like so:</p>
 				
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mattis neque id neque commodo, eget tristique ligula aliquam. Integer in suscipit mauris. Fusce viverra velit non suscipit facilisis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec posuere est id eleifend lacinia. Curabitur auctor leo quis massa suscipit maximus. Aenean eu urna commodo, tempor ex eu, facilisis nulla. Donec sed diam a orci hendrerit feugiat et et orci. Suspendisse nec velit porttitor, sagittis purus et, porta neque. Phasellus facilisis consectetur gravida. Praesent ut risus id diam bibendum congue. Fusce sit amet hendrerit libero, ac viverra urna. Praesent quis efficitur nulla, quis tincidunt nunc.</p>
+				<img src="./triangle2.png" />
 				
-				<p>Mauris pellentesque cursus nisi, in consequat enim vulputate sit amet. Sed pulvinar, lorem ac pulvinar venenatis, arcu elit dignissim dolor, et porttitor erat nulla non nulla. Mauris efficitur eu ante eu ornare. Vivamus eget risus at nibh tempus aliquam. Aliquam ut efficitur diam. Donec suscipit maximus risus vitae finibus. Vivamus non quam sollicitudin, egestas quam nec, auctor diam. Quisque nec quam neque. Nam mattis lacus vel egestas interdum. In ullamcorper condimentum tempus. Pellentesque vulputate enim leo, ut ultricies quam pretium sed. Vivamus tempor ante vitae enim auctor feugiat. Sed ullamcorper et elit sit amet maximus. Fusce nec ex sapien.</p>
+				<p>Next, do the same thing again, but with the whole thing. That would give:</p>
 				
-				<p>Nunc lobortis suscipit gravida. Fusce congue ex at ipsum consectetur mattis. Nulla aliquet lectus maximus, facilisis sem in, aliquam lorem. Nullam in facilisis eros. Curabitur maximus venenatis ipsum. Pellentesque sed neque at elit tincidunt maximus. Integer neque nibh, vestibulum vel convallis eget, tempor ac sem. Curabitur maximus condimentum semper. Pellentesque leo turpis, consequat id massa ac, laoreet luctus velit. Quisque ac eleifend ligula. Ut id neque eu purus faucibus accumsan quis eu diam. Donec lacinia turpis vitae nibh tincidunt, ut accumsan sapien tempus. Pellentesque dignissim tincidunt risus sed iaculis. Fusce id est lorem. Donec eu gravida dolor. Ut posuere convallis cursus.</p>
+				<img src="./triangle3.png" />
 				
-				<p>Quisque volutpat nulla volutpat, convallis leo et, condimentum ex. Etiam accumsan nunc vitae neque mollis placerat. Curabitur vitae dignissim libero, ac sagittis felis. Sed convallis nibh eu ipsum lobortis, eu scelerisque enim dapibus. Vivamus sit amet molestie ipsum, at dignissim magna. Suspendisse sagittis odio in rhoncus tempor. Vestibulum sollicitudin malesuada orci sed varius. Curabitur eget feugiat nisl. Ut quis pharetra sapien. Vivamus id sollicitudin orci. Morbi in eleifend tellus, quis dignissim felis. Donec lacinia luctus orci, quis cursus diam viverra ac. Duis orci lectus, molestie in facilisis suscipit, posuere ac urna. Nulla quis augue eget turpis rhoncus sagittis nec at enim. Etiam lobortis placerat ante sed molestie.</p>
+				<p>The perfect Sierpiński triangle would then be this step repeated again and again, an infinite number of times, looking something like:</p>
 				
-				<p>Sed dolor libero, ultricies vel ligula ac, interdum porttitor purus. Morbi sagittis justo sed leo ultrices, ac porttitor tortor laoreet. Aenean tristique lacinia ante ut blandit. Aenean a commodo nunc. Pellentesque ut neque bibendum, venenatis enim vitae, elementum libero. Vivamus fringilla tincidunt ante, in hendrerit urna iaculis vel. Aliquam bibendum pharetra nunc id lobortis. Nullam id gravida tortor. Proin consectetur congue rutrum.</p>
+				<img src="./triangle4.png" />
+				
+				<p>What's so neat about all this, is that this same patterns is simulated by several different elementary cellular automata, my favorite being <a class="rule-button clicky" onclick="update_rule_to(22)">rule 22</a>. Another interesting one is <a class="rule-button clicky" onclick="update_rule_to(102)">rule 102</a>, which looks like a rotated Sierpiński triangle.</p>
 			</div>
 		</div>
 	</body>
