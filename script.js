@@ -61,7 +61,7 @@ function show_num_input() {
 	
 	rule_num_elem.classList.add("no-display");
 	num_input_elem.classList.remove("no-display");
-	num_input_elem.focus();
+	num_input_elem.select();
 }
 
 function update_num_input() {
