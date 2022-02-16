@@ -37,16 +37,19 @@ function toggle_bit(elem, bit) {
 	update_rule_num();
 }
 
-function init_canvas() {
+function init() {
+	rule_num_elem = document.getElementById("rule-num");
+	num_input_elem = document.getElementById("num-input");
+	bit_elems = Array.from(document.querySelectorAll(".cell-table .clicky"));
+	toggle_button_elem = document.getElementById("show-canvas-button");
+	content_elem = document.getElementById("content");
+	
 	canvas = document.getElementById("canvas");
 	ctx = canvas.getContext("2d");
 	render();
 }
 
 function update_rule_num() {
-	requires_rule_num();
-	requires_num_input();
-	
 	let num = bits_to_num(rule);
 	rule_num_elem.innerText = num;
 	num_input_elem.value = num;
@@ -56,18 +59,12 @@ function update_rule_num() {
 }
 
 function show_num_input() {
-	requires_rule_num();
-	requires_num_input();
-	
 	rule_num_elem.classList.add("no-display");
 	num_input_elem.classList.remove("no-display");
 	num_input_elem.select();
 }
 
 function update_num_input() {
-	requires_rule_num();
-	requires_num_input();
-	
 	num_input_elem.classList.add("no-display");
 	rule_num_elem.classList.remove("no-display");
 	
@@ -81,8 +78,6 @@ function update_num_input() {
 }
 
 function update_rule_bits() {
-	requires_bits();
-	
 	for(let i = 0; i < rule.length; i++) {
 		let bit_elem = bit_elems[i];
 		if(rule[i]) {
@@ -96,9 +91,6 @@ function update_rule_bits() {
 }
 
 function toggle_lower() {
-	requires_toggle_button();
-	requires_content();
-	
 	if(!content_elem.classList.contains("lower")) {
 		content_elem.classList.add("lower");
 		toggle_button_elem.innerText = "Show less";
@@ -109,9 +101,6 @@ function toggle_lower() {
 }
 
 function update_rule_to(num) {
-	requires_num_input();
-	requires_content();
-	
 	rule = num_to_bits(num);
 	update_rule_num();
 	update_rule_bits();
@@ -125,31 +114,6 @@ function update_rule_to(num) {
 		top: rule_num_rect.top - body_rect.top + 30,
 		behavior: "smooth"
 	});
-}
-
-function requires_rule_num() {
-	if(!rule_num_elem)
-		rule_num_elem = document.getElementById("rule-num");
-}
-
-function requires_num_input() {
-	if(!num_input_elem)
-		num_input_elem = document.getElementById("num-input");
-}
-
-function requires_bits() {
-	if(!bit_elems)
-		bit_elems = Array.from(document.querySelectorAll(".cell-table .clicky"));
-}
-
-function requires_toggle_button() {
-	if(!toggle_button_elem)
-		toggle_button_elem = document.getElementById("show-canvas-button");
-}
-
-function requires_content() {
-	if(!content_elem)
-		content_elem = document.getElementById("content");
 }
 
 function render() {
@@ -195,5 +159,4 @@ function cells_for_width(width) {
 }
 
 window.addEventListener("resize", render, true);
-
-requestAnimationFrame(init_canvas);
+window.addEventListener("load", init, true);
